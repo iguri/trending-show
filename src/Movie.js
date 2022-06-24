@@ -1,26 +1,46 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Datacard from './Datacard';
+import ModalView from './modal';
+import Config from './config.json';
 
-function Movie (){
+
+function Movie() {
     const [movieData, setmovieData] = useState([]);
-    useEffect(()=>{
-        getdata2()
-    },[]);
-    function getdata2(){
-        axios('https://api.themoviedb.org/3/trending/movie/day?api_key=91d216ec6cb5cb93f831efa4ca831725')
-        .then((res) => res)
-        .then((data)=>{setmovieData(data.data.results)})
+    const [videoId, setVideoId] = useState('');
+
+    const [IsModalOpen, setIsModalOpen] = React.useState(false);
+
+    function openModal(videoId) {
+        setVideoId(videoId);
+        setIsModalOpen(true);
+    };
+
+    function closeModal() {
+        setIsModalOpen(false);
     }
-    return(<>
-            <h2>Movies</h2>
-            {movieData.map((value, index)=>
-                <Datacard 
-                    value={value}
-                    index={index}
-                />
-            )}
-        </>
+
+    useEffect(() => {
+        getMoviesData()
+    }, []);
+    function getMoviesData() {
+        axios(Config["trending-movies"])
+            .then((res) => res)
+            .then((data) => { setmovieData(data.data.results); })
+    }
+
+    return (<>
+        <h2>Movies</h2>
+        <ModalView modalIsOpen={IsModalOpen} closeModal={closeModal} videoId={videoId} />
+        {movieData.map((value, index) =>
+            <Datacard
+                value={value}
+                index={index}
+                key={index}
+                openModal={openModal}
+            />
+        )}
+    </>
     );
 }
 export default Movie;
