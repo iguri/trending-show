@@ -1,5 +1,5 @@
 {
-    "trending-movies": "https://api.themoviedb.org/3/trending/movie/day?api_key=YOUR_API_KEY",
-    "trending-tv": "https://api.themoviedb.org/3/trending/tv/day?api_key=YOUR_API_KEY",
-    "youtube-api": "https://api.themoviedb.org/3/trending/movie/day?api_key=YOUR_API_KEY"
+    "trending-movies": "https://api.themoviedb.org/3/trending/movie/day?api_key=91d216ec6cb5cb93f831efa4ca831725",
+    "trending-tv": "https://api.themoviedb.org/3/trending/tv/day?api_key=91d216ec6cb5cb93f831efa4ca831725",
+    "youtube-api": "https://api.themoviedb.org/3/trending/movie/day?api_key=91d216ec6cb5cb93f831efa4ca831725"
 }
