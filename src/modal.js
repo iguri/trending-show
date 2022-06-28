@@ -37,7 +37,7 @@ function ModalView({ modalIsOpen, closeModal, videoId }) {
             id='video-wrap'
         >
             <div className='video-container'>
-                <iframe width="100%" allow="fullscreen;" allowfullscreen="allowfullscreen" src={'https://www.youtube.com/embed/' + videoId} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                <iframe width="100%" allow="fullscreen;" allowFullScreen="allowfullscreen" src={'https://www.youtube.com/embed/' + videoId} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
             </div>
         </Modal>
     );
